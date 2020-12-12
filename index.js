@@ -23,12 +23,14 @@ const colorSwitcher = {
       return;
     }
     this.isActive = true;
+    buttonStart.setAttribute("disabled", "disabled");
     this.switcherId = setInterval(() => {
       let color = colors[randomIntegerFromInterval(0, colors.length - 1)];
       body.style.backgroundColor = color;
     }, 1000);
   },
   stop() {
+    buttonStart.removeAttribute("disabled");
     this.isActive = false;
     clearInterval(this.switcherId);
   },
